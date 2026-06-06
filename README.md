@@ -6,7 +6,7 @@ A premium, highly animated, and modern UI component library for Flutter. Built w
 
 The vision behind this UI Kit is to provide **production-ready, visually stunning, and highly interactive** components that elevate the user experience of any Flutter application. Instead of basic static widgets, these components are designed to feel alive, responsive, and deeply polished.
 
-We believe that great design is in the details—micro-interactions, subtle gradients, dynamic shadows, and physics-based animations. This library aims to be the go-to resource for developers looking to add that "wow" factor to their apps without spending hours tweaking `AnimationController`s and custom painters.
+I believe that great design is in the details—micro-interactions, subtle gradients, dynamic shadows, and physics-based animations. This library aims to be the go-to resource for developers looking to add that "wow" factor to their apps without spending hours tweaking `AnimationController`s and custom painters.
 
 ## 🚀 How to Use
 
