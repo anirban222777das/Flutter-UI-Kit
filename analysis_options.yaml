@@ -1,0 +1,20 @@
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  exclude:
+    - '**/*.g.dart'
+    - '**/*.freezed.dart'
+
+linter:
+  rules:
+    # Practical overrides for animation-heavy UI code
+    public_member_api_docs: false
+    lines_longer_than_80_chars: false
+    flutter_style_todos: false
+    # Allow positional booleans for simple widget toggle params
+    avoid_positional_boolean_parameters: false
+    # Allow single-letter variable names in animation math (t, x, y)
+    no_leading_underscores_for_local_identifiers: false
+    # Component files may have multiple closely-related classes
+    prefer_single_quotes: true
+    sort_constructors_first: false
