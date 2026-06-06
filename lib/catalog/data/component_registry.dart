@@ -25,6 +25,7 @@ import 'package:uikit/components/loaders/liquid_loader.dart';
 import 'package:uikit/components/loaders/morph_loader.dart';
 import 'package:uikit/components/loaders/orbit_loader.dart';
 import 'package:uikit/components/loaders/pulse_loader.dart';
+import 'package:uikit/components/loaders/squish_liquid_glass_loader.dart';
 import 'package:uikit/components/navigation/chromatic_ripple_navbar.dart';
 import 'package:uikit/components/navigation/glow_indicator_navbar.dart';
 import 'package:uikit/components/navigation/liquid_glass_navbar.dart';
@@ -73,7 +74,7 @@ abstract final class ComponentRegistry {
               'Smooth animated loading indicators with liquid, orbital, and morphing effects',
           icon: Icons.hourglass_top_rounded,
           accentColor: AppColors.accentTeal,
-          componentCount: 4,
+          componentCount: 5,
         ),
         const ComponentCategory(
           id: 'textfields',
@@ -1251,6 +1252,29 @@ abstract final class ComponentRegistry {
   // ──────────────────────────────────────────────
 
   static final List<ComponentItem> _loaderComponents = [
+    ComponentItem(
+      id: 'squish_liquid_glass_loader',
+      name: 'Squish Liquid Glass Loader',
+      description: 'A mesmerizing loader that simulates a squishy, organic drop of liquid glass. '
+          'Features true optical refraction, dynamic highlights, and organic shape morphing.',
+      categoryId: 'loaders',
+      tags: ['glass', 'liquid', 'squish', 'organic', 'visionos'],
+      features: [
+        'True optical BackdropFilter refraction',
+        'Organic squishing and rotation physics',
+        'Dynamic specular highlights',
+        'Configurable base tint and speed',
+      ],
+      dependencies: ['dart:ui (BackdropFilter)', 'dart:math'],
+      usageExample: '''SquishLiquidGlassLoader(
+  size: 80,
+  baseColor: Colors.blue,
+)''',
+      previewBuilder: () => const SquishLiquidGlassLoader(
+        size: 72,
+        baseColor: Colors.blueAccent,
+      ),
+    ),
     ComponentItem(
       id: 'liquid_loader',
       name: 'Liquid Loader',
