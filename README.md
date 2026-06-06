@@ -265,11 +265,6 @@ Each component folder includes a dedicated `README.md` with:
 - Performance notes
 - Common customization patterns
 
-Browse component docs at:
-```
-lib/components/[category]/[component_name]/README.md
-```
-
 ## 🔧 Technical Stack
 
 | Aspect | Technology |
@@ -287,12 +282,10 @@ lib/components/[category]/[component_name]/README.md
 |----------|--------|------------|
 | iOS | ✅ Full Support | iOS 12.0+ |
 | Android | ✅ Full Support | Android 5.0+ |
-| Web | ✅ Full Support | Chrome 90+, Safari 14+ |
-| macOS | ⚠️ Partial | macOS 10.15+ |
 
 ## 🤝 Contributing
 
-We love contributions! If you've built an amazing component that fits our design language, please contribute:
+I love contributions! If you've built an amazing component that fits our design language, please contribute:
 
 ### How to Contribute
 
@@ -344,10 +337,8 @@ Inspired by:
 
 - [ ] Add more animation variants
 - [ ] Web platform optimizations
-- [ ] Accessibility improvements (WCAG 2.1 AA)
-- [ ] Storybook integration
-- [ ] Figma design system export
-- [ ] Component cookbook recipes
+- [ ] Component optimizations
+- [ ] Make the components more production ready
 
 ---
 
