@@ -115,7 +115,7 @@ class HomeScreen extends ConsumerWidget {
                 maxCrossAxisExtent: context.isCompact ? 200 : 240,
                 mainAxisSpacing: AppSpacing.lg,
                 crossAxisSpacing: AppSpacing.lg,
-                childAspectRatio: context.isCompact ? 0.75 : 0.85,
+                childAspectRatio: context.isCompact ? 0.70 : 0.85,
               ),
               delegate: SliverChildBuilderDelegate(
                 (context, index) {
