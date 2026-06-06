@@ -69,7 +69,7 @@ class _CategoryTileState extends State<CategoryTile> {
             ],
           ),
           child: Padding(
-            padding: const EdgeInsets.all(AppSpacing.lgx),
+            padding: const EdgeInsets.all(AppSpacing.md),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
