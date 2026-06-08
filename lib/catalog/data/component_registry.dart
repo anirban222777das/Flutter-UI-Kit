@@ -36,6 +36,7 @@ import 'package:uikit/components/textfields/floating_label_field.dart';
 import 'package:uikit/components/textfields/glass_input.dart';
 import 'package:uikit/components/textfields/ios_search_field.dart';
 import 'package:uikit/components/textfields/underline_input.dart';
+import 'package:uikit/components/feedback/premium_feedback_form.dart';
 import 'package:uikit/core/theme/app_colors.dart';
 import 'package:uikit/shared/models/component_model.dart';
 
@@ -49,64 +50,74 @@ abstract final class ComponentRegistry {
   // ──────────────────────────────────────────────
 
   static List<ComponentCategory> get categories => [
-        const ComponentCategory(
-          id: 'buttons',
-          name: 'Buttons',
-          description:
-              'Premium interactive button components with rich animations and effects',
-          icon: Icons.smart_button_rounded,
-          accentColor: AppColors.accentPurple,
-          componentCount: 16,
-        ),
-        const ComponentCategory(
-          id: 'cards',
-          name: 'Cards',
-          description:
-              'Versatile card layouts with glass effects, expansion, and data display',
-          icon: Icons.credit_card_rounded,
-          accentColor: AppColors.accentBlue,
-          componentCount: 4,
-        ),
-        const ComponentCategory(
-          id: 'loaders',
-          name: 'Loaders',
-          description:
-              'Smooth animated loading indicators with liquid, orbital, and morphing effects',
-          icon: Icons.hourglass_top_rounded,
-          accentColor: AppColors.accentTeal,
-          componentCount: 5,
-        ),
-        const ComponentCategory(
-          id: 'textfields',
-          name: 'TextFields',
-          description:
-              'Polished text input components with floating labels, glass effects, and iOS styling',
-          icon: Icons.text_fields_rounded,
-          accentColor: AppColors.accentOrange,
-          componentCount: 5,
-        ),
-        const ComponentCategory(
-          id: 'navbars',
-          name: 'Navbars',
-          description:
-              'Premium navigation bars with glassmorphism and spring animations',
-          icon: Icons.horizontal_split_rounded,
-          accentColor: AppColors.accentPink,
-          componentCount: 5,
-        ),
-      ];
+    const ComponentCategory(
+      id: 'buttons',
+      name: 'Buttons',
+      description:
+          'Premium interactive button components with rich animations and effects',
+      icon: Icons.smart_button_rounded,
+      accentColor: AppColors.accentPurple,
+      componentCount: 16,
+    ),
+    const ComponentCategory(
+      id: 'cards',
+      name: 'Cards',
+      description:
+          'Versatile card layouts with glass effects, expansion, and data display',
+      icon: Icons.credit_card_rounded,
+      accentColor: AppColors.accentBlue,
+      componentCount: 4,
+    ),
+    const ComponentCategory(
+      id: 'loaders',
+      name: 'Loaders',
+      description:
+          'Smooth animated loading indicators with liquid, orbital, and morphing effects',
+      icon: Icons.hourglass_top_rounded,
+      accentColor: AppColors.accentTeal,
+      componentCount: 5,
+    ),
+    const ComponentCategory(
+      id: 'textfields',
+      name: 'TextFields',
+      description:
+          'Polished text input components with floating labels, glass effects, and iOS styling',
+      icon: Icons.text_fields_rounded,
+      accentColor: AppColors.accentOrange,
+      componentCount: 5,
+    ),
+    const ComponentCategory(
+      id: 'navbars',
+      name: 'Navbars',
+      description:
+          'Premium navigation bars with glassmorphism and spring animations',
+      icon: Icons.horizontal_split_rounded,
+      accentColor: AppColors.accentPink,
+      componentCount: 5,
+    ),
+    const ComponentCategory(
+      id: 'feedback',
+      name: 'Feedback',
+      description:
+          'Emotionally reactive feedback forms with advanced physics and fluid morphing animations',
+      icon: Icons.sentiment_satisfied_alt_rounded,
+      accentColor: AppColors.accentAmber,
+      componentCount: 1,
+    ),
+  ];
 
   // ──────────────────────────────────────────────
   // All components
   // ──────────────────────────────────────────────
 
   static List<ComponentItem> get allComponents => [
-        ..._buttonComponents,
-        ..._cardComponents,
-        ..._loaderComponents,
-        ..._textFieldComponents,
-        ..._navigationComponents,
-      ];
+    ..._buttonComponents,
+    ..._cardComponents,
+    ..._loaderComponents,
+    ..._textFieldComponents,
+    ..._navigationComponents,
+    ..._feedbackComponents,
+  ];
 
   // ──────────────────────────────────────────────
   // Buttons
@@ -137,7 +148,8 @@ abstract final class ComponentRegistry {
   borderRadius: 24,
   height: 56,
 )''',
-      implementationNotes: 'Uses BackdropFilter for the frosted glass effect. '
+      implementationNotes:
+          'Uses BackdropFilter for the frosted glass effect. '
           'Wrap in a Stack with a background for visible blur.',
       previewBuilder: () => const GlassButton(
         text: 'Glass Button',
@@ -172,7 +184,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'magnetic_button',
       name: 'Magnetic Button',
-      description: 'A button that subtly follows finger position, creating a '
+      description:
+          'A button that subtly follows finger position, creating a '
           'magnetic attraction effect with spring-back on release.',
       categoryId: 'buttons',
       tags: ['magnetic', 'interactive', 'spring', 'touch-tracking'],
@@ -251,7 +264,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'floating_action_button_custom',
       name: 'Expandable FAB',
-      description: 'An expandable floating action button that reveals multiple '
+      description:
+          'An expandable floating action button that reveals multiple '
           'action items with staggered spring animations.',
       categoryId: 'buttons',
       tags: ['fab', 'expandable', 'radial', 'menu'],
@@ -333,7 +347,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'glow_button',
       name: 'Glow Button',
-      description: 'A vibrant button that pulsates with a glowing shadow. '
+      description:
+          'A vibrant button that pulsates with a glowing shadow. '
           'Features an animated drop shadow that breathes, giving a neon feel.',
       categoryId: 'buttons',
       tags: ['glow', 'neon', 'pulsate', 'shadow'],
@@ -407,7 +422,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'swipe_button',
       name: 'Swipe Button',
-      description: 'A highly interactive "slide to confirm" button. '
+      description:
+          'A highly interactive "slide to confirm" button. '
           'The user must drag a thumb to the right to trigger the action.',
       categoryId: 'buttons',
       tags: ['swipe', 'slide', 'confirm', 'interactive'],
@@ -658,7 +674,7 @@ abstract final class ComponentRegistry {
                 colors: [
                   Color(0xFF3B82F6),
                   Color(0xFF60A5FA),
-                  Color(0xFF93C5FD)
+                  Color(0xFF93C5FD),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -674,9 +690,13 @@ abstract final class ComponentRegistry {
                   items: const [
                     LiquidNavBarItem(icon: Icons.home_rounded, label: 'Home'),
                     LiquidNavBarItem(
-                        icon: Icons.analytics_rounded, label: 'Analytics'),
+                      icon: Icons.analytics_rounded,
+                      label: 'Analytics',
+                    ),
                     LiquidNavBarItem(
-                        icon: Icons.person_rounded, label: 'Account'),
+                      icon: Icons.person_rounded,
+                      label: 'Account',
+                    ),
                   ],
                 ),
                 const SizedBox(height: 32),
@@ -695,7 +715,7 @@ abstract final class ComponentRegistry {
                                       colors: [
                                         Color(0xFF3B82F6),
                                         Color(0xFF60A5FA),
-                                        Color(0xFF93C5FD)
+                                        Color(0xFF93C5FD),
                                       ],
                                       begin: Alignment.topLeft,
                                       end: Alignment.bottomRight,
@@ -708,8 +728,9 @@ abstract final class ComponentRegistry {
                                           child: FilledButton.icon(
                                             onPressed: () =>
                                                 Navigator.of(context).pop(),
-                                            icon:
-                                                const Icon(Icons.close_rounded),
+                                            icon: const Icon(
+                                              Icons.close_rounded,
+                                            ),
                                             label: const Text('Close Test'),
                                             style: FilledButton.styleFrom(
                                               backgroundColor: Colors.white24,
@@ -721,29 +742,33 @@ abstract final class ComponentRegistry {
                                           alignment: Alignment.bottomCenter,
                                           child: Padding(
                                             padding: const EdgeInsets.only(
-                                                bottom: 24.0,
-                                                left: 24.0,
-                                                right: 24.0),
+                                              bottom: 24.0,
+                                              left: 24.0,
+                                              right: 24.0,
+                                            ),
                                             child: LiquidGlassNavBar(
                                               selectedIndex: fullIndex,
                                               onItemSelected: (idx) =>
                                                   setFullState(
-                                                      () => fullIndex = idx),
+                                                    () => fullIndex = idx,
+                                                  ),
                                               items: const [
                                                 LiquidNavBarItem(
-                                                    icon: Icons.home_rounded,
-                                                    label: 'Home'),
+                                                  icon: Icons.home_rounded,
+                                                  label: 'Home',
+                                                ),
                                                 LiquidNavBarItem(
-                                                    icon:
-                                                        Icons.analytics_rounded,
-                                                    label: 'Analytics'),
+                                                  icon: Icons.analytics_rounded,
+                                                  label: 'Analytics',
+                                                ),
                                                 LiquidNavBarItem(
-                                                    icon: Icons.person_rounded,
-                                                    label: 'Account'),
+                                                  icon: Icons.person_rounded,
+                                                  label: 'Account',
+                                                ),
                                                 LiquidNavBarItem(
-                                                    icon:
-                                                        Icons.settings_rounded,
-                                                    label: 'Settings'),
+                                                  icon: Icons.settings_rounded,
+                                                  label: 'Settings',
+                                                ),
                                               ],
                                             ),
                                           ),
@@ -759,14 +784,20 @@ abstract final class ComponentRegistry {
                       ),
                     );
                   },
-                  icon:
-                      const Icon(Icons.fullscreen_rounded, color: Colors.white),
-                  label: const Text('Test Fullscreen',
-                      style: TextStyle(color: Colors.white)),
+                  icon: const Icon(
+                    Icons.fullscreen_rounded,
+                    color: Colors.white,
+                  ),
+                  label: const Text(
+                    'Test Fullscreen',
+                    style: TextStyle(color: Colors.white),
+                  ),
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.black26,
                     padding: const EdgeInsets.symmetric(
-                        horizontal: 24, vertical: 12),
+                      horizontal: 24,
+                      vertical: 12,
+                    ),
                   ),
                 ),
               ],
@@ -778,7 +809,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'premium_floating_navbar',
       name: 'Premium Floating NavBar',
-      description: 'A sleek, floating pill-shaped navbar with a sliding background highlight and frosted glass effect.',
+      description:
+          'A sleek, floating pill-shaped navbar with a sliding background highlight and frosted glass effect.',
       categoryId: 'navbars',
       tags: ['navigation', 'floating', 'glass', 'premium'],
       features: [
@@ -806,11 +838,21 @@ abstract final class ComponentRegistry {
               children: [
                 PremiumFloatingNavBar(
                   selectedIndex: currentIndex,
-                  onItemSelected: (index) => setLocalState(() => currentIndex = index),
+                  onItemSelected: (index) =>
+                      setLocalState(() => currentIndex = index),
                   items: const [
-                    PremiumFloatingNavBarItem(icon: Icons.home_rounded, label: 'Home'),
-                    PremiumFloatingNavBarItem(icon: Icons.search_rounded, label: 'Search'),
-                    PremiumFloatingNavBarItem(icon: Icons.person_rounded, label: 'Profile'),
+                    PremiumFloatingNavBarItem(
+                      icon: Icons.home_rounded,
+                      label: 'Home',
+                    ),
+                    PremiumFloatingNavBarItem(
+                      icon: Icons.search_rounded,
+                      label: 'Search',
+                    ),
+                    PremiumFloatingNavBarItem(
+                      icon: Icons.person_rounded,
+                      label: 'Profile',
+                    ),
                   ],
                 ),
                 const SizedBox(height: 32),
@@ -825,29 +867,52 @@ abstract final class ComponentRegistry {
                               return Scaffold(
                                 body: Container(
                                   decoration: BoxDecoration(
-                                    color: Theme.of(context).brightness == Brightness.dark ? const Color(0xFF111111) : const Color(0xFFF3F4F6),
+                                    color:
+                                        Theme.of(context).brightness ==
+                                            Brightness.dark
+                                        ? const Color(0xFF111111)
+                                        : const Color(0xFFF3F4F6),
                                   ),
                                   child: SafeArea(
                                     child: Stack(
                                       children: [
                                         Center(
                                           child: FilledButton.icon(
-                                            onPressed: () => Navigator.of(context).pop(),
-                                            icon: const Icon(Icons.close_rounded),
+                                            onPressed: () =>
+                                                Navigator.of(context).pop(),
+                                            icon: const Icon(
+                                              Icons.close_rounded,
+                                            ),
                                             label: const Text('Close Test'),
                                           ),
                                         ),
                                         Align(
                                           alignment: Alignment.bottomCenter,
                                           child: Padding(
-                                            padding: const EdgeInsets.only(bottom: 24.0, left: 24.0, right: 24.0),
+                                            padding: const EdgeInsets.only(
+                                              bottom: 24.0,
+                                              left: 24.0,
+                                              right: 24.0,
+                                            ),
                                             child: PremiumFloatingNavBar(
                                               selectedIndex: fullIndex,
-                                              onItemSelected: (idx) => setFullState(() => fullIndex = idx),
+                                              onItemSelected: (idx) =>
+                                                  setFullState(
+                                                    () => fullIndex = idx,
+                                                  ),
                                               items: const [
-                                                PremiumFloatingNavBarItem(icon: Icons.home_rounded, label: 'Home'),
-                                                PremiumFloatingNavBarItem(icon: Icons.search_rounded, label: 'Search'),
-                                                PremiumFloatingNavBarItem(icon: Icons.person_rounded, label: 'Profile'),
+                                                PremiumFloatingNavBarItem(
+                                                  icon: Icons.home_rounded,
+                                                  label: 'Home',
+                                                ),
+                                                PremiumFloatingNavBarItem(
+                                                  icon: Icons.search_rounded,
+                                                  label: 'Search',
+                                                ),
+                                                PremiumFloatingNavBarItem(
+                                                  icon: Icons.person_rounded,
+                                                  label: 'Profile',
+                                                ),
                                               ],
                                             ),
                                           ),
@@ -863,11 +928,20 @@ abstract final class ComponentRegistry {
                       ),
                     );
                   },
-                  icon: const Icon(Icons.fullscreen_rounded, color: Colors.white),
-                  label: const Text('Test Fullscreen', style: TextStyle(color: Colors.white)),
+                  icon: const Icon(
+                    Icons.fullscreen_rounded,
+                    color: Colors.white,
+                  ),
+                  label: const Text(
+                    'Test Fullscreen',
+                    style: TextStyle(color: Colors.white),
+                  ),
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.black26,
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 12,
+                    ),
                   ),
                 ),
               ],
@@ -879,7 +953,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'glow_indicator_navbar',
       name: 'Glow Indicator NavBar',
-      description: 'A dark-themed optimized navbar featuring a vibrant neon glowing line and gradient light beam.',
+      description:
+          'A dark-themed optimized navbar featuring a vibrant neon glowing line and gradient light beam.',
       categoryId: 'navbars',
       tags: ['navigation', 'glow', 'neon', 'dark-mode'],
       features: [
@@ -911,11 +986,21 @@ abstract final class ComponentRegistry {
               children: [
                 GlowIndicatorNavBar(
                   selectedIndex: currentIndex,
-                  onItemSelected: (index) => setLocalState(() => currentIndex = index),
+                  onItemSelected: (index) =>
+                      setLocalState(() => currentIndex = index),
                   items: const [
-                    GlowIndicatorNavBarItem(icon: Icons.home_rounded, label: 'Home'),
-                    GlowIndicatorNavBarItem(icon: Icons.search_rounded, label: 'Search'),
-                    GlowIndicatorNavBarItem(icon: Icons.person_rounded, label: 'Profile'),
+                    GlowIndicatorNavBarItem(
+                      icon: Icons.home_rounded,
+                      label: 'Home',
+                    ),
+                    GlowIndicatorNavBarItem(
+                      icon: Icons.search_rounded,
+                      label: 'Search',
+                    ),
+                    GlowIndicatorNavBarItem(
+                      icon: Icons.person_rounded,
+                      label: 'Profile',
+                    ),
                   ],
                 ),
                 const SizedBox(height: 32),
@@ -934,7 +1019,8 @@ abstract final class ComponentRegistry {
                                     children: [
                                       Center(
                                         child: FilledButton.icon(
-                                          onPressed: () => Navigator.of(context).pop(),
+                                          onPressed: () =>
+                                              Navigator.of(context).pop(),
                                           icon: const Icon(Icons.close_rounded),
                                           label: const Text('Close Test'),
                                         ),
@@ -943,11 +1029,22 @@ abstract final class ComponentRegistry {
                                         alignment: Alignment.bottomCenter,
                                         child: GlowIndicatorNavBar(
                                           selectedIndex: fullIndex,
-                                          onItemSelected: (idx) => setFullState(() => fullIndex = idx),
+                                          onItemSelected: (idx) => setFullState(
+                                            () => fullIndex = idx,
+                                          ),
                                           items: const [
-                                            GlowIndicatorNavBarItem(icon: Icons.home_rounded, label: 'Home'),
-                                            GlowIndicatorNavBarItem(icon: Icons.search_rounded, label: 'Search'),
-                                            GlowIndicatorNavBarItem(icon: Icons.person_rounded, label: 'Profile'),
+                                            GlowIndicatorNavBarItem(
+                                              icon: Icons.home_rounded,
+                                              label: 'Home',
+                                            ),
+                                            GlowIndicatorNavBarItem(
+                                              icon: Icons.search_rounded,
+                                              label: 'Search',
+                                            ),
+                                            GlowIndicatorNavBarItem(
+                                              icon: Icons.person_rounded,
+                                              label: 'Profile',
+                                            ),
                                           ],
                                         ),
                                       ),
@@ -961,11 +1058,20 @@ abstract final class ComponentRegistry {
                       ),
                     );
                   },
-                  icon: const Icon(Icons.fullscreen_rounded, color: Colors.white),
-                  label: const Text('Test Fullscreen', style: TextStyle(color: Colors.white)),
+                  icon: const Icon(
+                    Icons.fullscreen_rounded,
+                    color: Colors.white,
+                  ),
+                  label: const Text(
+                    'Test Fullscreen',
+                    style: TextStyle(color: Colors.white),
+                  ),
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.white24,
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 12,
+                    ),
                   ),
                 ),
               ],
@@ -977,7 +1083,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'morphing_island_navbar',
       name: 'Morphing Island NavBar',
-      description: 'An animated floating navbar where the active indicator physically stretches and compresses between items.',
+      description:
+          'An animated floating navbar where the active indicator physically stretches and compresses between items.',
       categoryId: 'navbars',
       tags: ['navigation', 'island', 'morphing', 'physics'],
       features: [
@@ -1005,11 +1112,21 @@ abstract final class ComponentRegistry {
               children: [
                 MorphingIslandNavBar(
                   selectedIndex: currentIndex,
-                  onItemSelected: (index) => setLocalState(() => currentIndex = index),
+                  onItemSelected: (index) =>
+                      setLocalState(() => currentIndex = index),
                   items: const [
-                    MorphingIslandNavBarItem(icon: Icons.home_rounded, label: 'Home'),
-                    MorphingIslandNavBarItem(icon: Icons.search_rounded, label: 'Search'),
-                    MorphingIslandNavBarItem(icon: Icons.person_rounded, label: 'Profile'),
+                    MorphingIslandNavBarItem(
+                      icon: Icons.home_rounded,
+                      label: 'Home',
+                    ),
+                    MorphingIslandNavBarItem(
+                      icon: Icons.search_rounded,
+                      label: 'Search',
+                    ),
+                    MorphingIslandNavBarItem(
+                      icon: Icons.person_rounded,
+                      label: 'Profile',
+                    ),
                   ],
                 ),
                 const SizedBox(height: 32),
@@ -1024,29 +1141,50 @@ abstract final class ComponentRegistry {
                               return Scaffold(
                                 body: Container(
                                   decoration: BoxDecoration(
-                                    color: Theme.of(context).brightness == Brightness.dark ? const Color(0xFF111111) : const Color(0xFFE5E7EB),
+                                    color:
+                                        Theme.of(context).brightness ==
+                                            Brightness.dark
+                                        ? const Color(0xFF111111)
+                                        : const Color(0xFFE5E7EB),
                                   ),
                                   child: SafeArea(
                                     child: Stack(
                                       children: [
                                         Center(
                                           child: FilledButton.icon(
-                                            onPressed: () => Navigator.of(context).pop(),
-                                            icon: const Icon(Icons.close_rounded),
+                                            onPressed: () =>
+                                                Navigator.of(context).pop(),
+                                            icon: const Icon(
+                                              Icons.close_rounded,
+                                            ),
                                             label: const Text('Close Test'),
                                           ),
                                         ),
                                         Align(
                                           alignment: Alignment.bottomCenter,
                                           child: Padding(
-                                            padding: const EdgeInsets.only(bottom: 24.0),
+                                            padding: const EdgeInsets.only(
+                                              bottom: 24.0,
+                                            ),
                                             child: MorphingIslandNavBar(
                                               selectedIndex: fullIndex,
-                                              onItemSelected: (idx) => setFullState(() => fullIndex = idx),
+                                              onItemSelected: (idx) =>
+                                                  setFullState(
+                                                    () => fullIndex = idx,
+                                                  ),
                                               items: const [
-                                                MorphingIslandNavBarItem(icon: Icons.home_rounded, label: 'Home'),
-                                                MorphingIslandNavBarItem(icon: Icons.search_rounded, label: 'Search'),
-                                                MorphingIslandNavBarItem(icon: Icons.person_rounded, label: 'Profile'),
+                                                MorphingIslandNavBarItem(
+                                                  icon: Icons.home_rounded,
+                                                  label: 'Home',
+                                                ),
+                                                MorphingIslandNavBarItem(
+                                                  icon: Icons.search_rounded,
+                                                  label: 'Search',
+                                                ),
+                                                MorphingIslandNavBarItem(
+                                                  icon: Icons.person_rounded,
+                                                  label: 'Profile',
+                                                ),
                                               ],
                                             ),
                                           ),
@@ -1062,11 +1200,20 @@ abstract final class ComponentRegistry {
                       ),
                     );
                   },
-                  icon: const Icon(Icons.fullscreen_rounded, color: Colors.white),
-                  label: const Text('Test Fullscreen', style: TextStyle(color: Colors.white)),
+                  icon: const Icon(
+                    Icons.fullscreen_rounded,
+                    color: Colors.white,
+                  ),
+                  label: const Text(
+                    'Test Fullscreen',
+                    style: TextStyle(color: Colors.white),
+                  ),
                   style: TextButton.styleFrom(
                     backgroundColor: Colors.black26,
-                    padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 24,
+                      vertical: 12,
+                    ),
                   ),
                 ),
               ],
@@ -1113,7 +1260,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'glass_card',
       name: 'Glass Card',
-      description: 'A frosted glass card with configurable backdrop blur. '
+      description:
+          'A frosted glass card with configurable backdrop blur. '
           'Creates a premium translucent surface effect.',
       categoryId: 'cards',
       tags: ['glass', 'blur', 'frosted', 'translucent'],
@@ -1153,7 +1301,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'expandable_card',
       name: 'Expandable Card',
-      description: 'A tappable card that expands to reveal additional content. '
+      description:
+          'A tappable card that expands to reveal additional content. '
           'Uses smooth height animation with AnimatedCrossFade.',
       categoryId: 'cards',
       tags: ['expandable', 'accordion', 'disclosure', 'animated'],
@@ -1185,7 +1334,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'animated_info_card',
       name: 'Animated Info Card',
-      description: 'An information card with animated entry and accent color. '
+      description:
+          'An information card with animated entry and accent color. '
           'Features slide + fade entry animation.',
       categoryId: 'cards',
       tags: ['info', 'animated', 'entry', 'accent'],
@@ -1215,7 +1365,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'dashboard_card',
       name: 'Dashboard Card',
-      description: 'A metric display card with animated number counter and '
+      description:
+          'A metric display card with animated number counter and '
           'trend indicator, suitable for dashboards.',
       categoryId: 'cards',
       tags: ['dashboard', 'metric', 'counter', 'trend'],
@@ -1255,7 +1406,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'squish_liquid_glass_loader',
       name: 'Squish Liquid Glass Loader',
-      description: 'A mesmerizing loader that simulates a squishy, organic drop of liquid glass. '
+      description:
+          'A mesmerizing loader that simulates a squishy, organic drop of liquid glass. '
           'Features true optical refraction, dynamic highlights, and organic shape morphing.',
       categoryId: 'loaders',
       tags: ['glass', 'liquid', 'squish', 'organic', 'visionos'],
@@ -1278,7 +1430,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'liquid_loader',
       name: 'Liquid Loader',
-      description: 'A liquid-like animated loader with morphing blob effect. '
+      description:
+          'A liquid-like animated loader with morphing blob effect. '
           'Uses CustomPainter with animated radius offsets.',
       categoryId: 'loaders',
       tags: ['liquid', 'blob', 'morph', 'organic'],
@@ -1299,7 +1452,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'pulse_loader',
       name: 'Pulse Loader',
-      description: 'Pulsing dots with staggered timing. Dots scale and '
+      description:
+          'Pulsing dots with staggered timing. Dots scale and '
           'fade in sequence for a rhythmic loading indicator.',
       categoryId: 'loaders',
       tags: ['pulse', 'dots', 'staggered', 'rhythmic'],
@@ -1320,7 +1474,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'orbit_loader',
       name: 'Orbit Loader',
-      description: 'Orbiting dots rotating around a center point with '
+      description:
+          'Orbiting dots rotating around a center point with '
           'trailing opacity and size effect.',
       categoryId: 'loaders',
       tags: ['orbit', 'rotating', 'trailing', 'circular'],
@@ -1341,7 +1496,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'morph_loader',
       name: 'Morph Loader',
-      description: 'Shape-morphing loader that transitions between circle, '
+      description:
+          'Shape-morphing loader that transitions between circle, '
           'rounded square, and diamond with rotation.',
       categoryId: 'loaders',
       tags: ['morph', 'shape', 'transform', 'geometric'],
@@ -1369,7 +1525,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'floating_label_field',
       name: 'Floating Label Field',
-      description: 'A premium floating label text field with smooth label '
+      description:
+          'A premium floating label text field with smooth label '
           'animation and animated border color on focus.',
       categoryId: 'textfields',
       tags: ['floating-label', 'material', 'form', 'animated'],
@@ -1397,7 +1554,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'glass_input',
       name: 'Glass Input',
-      description: 'A glass-morphism text input with frosted blur background '
+      description:
+          'A glass-morphism text input with frosted blur background '
           'and animated focus border glow.',
       categoryId: 'textfields',
       tags: ['glass', 'blur', 'glow', 'premium'],
@@ -1424,7 +1582,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'animated_search_bar',
       name: 'Animated Search Bar',
-      description: 'An expandable search bar that slides open on tap. '
+      description:
+          'An expandable search bar that slides open on tap. '
           'Starts as a compact icon button.',
       categoryId: 'textfields',
       tags: ['search', 'expandable', 'animated', 'compact'],
@@ -1449,7 +1608,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'ios_search_field',
       name: 'iOS Search Field',
-      description: 'A Cupertino-style search field with animated cancel button '
+      description:
+          'A Cupertino-style search field with animated cancel button '
           'that slides in on focus.',
       categoryId: 'textfields',
       tags: ['ios', 'cupertino', 'search', 'native'],
@@ -1474,7 +1634,8 @@ abstract final class ComponentRegistry {
     ComponentItem(
       id: 'underline_input',
       name: 'Underline Input',
-      description: 'A minimal underline-only text input with animated focus '
+      description:
+          'A minimal underline-only text input with animated focus '
           'indicator that changes color and width.',
       categoryId: 'textfields',
       tags: ['underline', 'minimal', 'clean', 'animated'],
@@ -1526,6 +1687,74 @@ abstract final class ComponentRegistry {
       return null;
     }
   }
+
+  // ──────────────────────────────────────────────
+  // Feedback
+  // ──────────────────────────────────────────────
+
+  static final List<ComponentItem> _feedbackComponents = [
+    ComponentItem(
+      id: 'premium_feedback_form',
+      name: 'Premium Feedback',
+      description:
+          'A full-screen emotionally reactive feedback experience. '
+          'Features a fluid morphing face, animated neon gradients, dynamic '
+          'typography, and spring physics slider inspired by premium motion design.',
+      categoryId: 'feedback',
+      tags: ['feedback', 'rating', 'emotion', 'morph', 'animated', 'slider'],
+      features: [
+        'Fluid CustomPainter face morphing',
+        'Dynamic radial gradient background',
+        'Spring physics slider interaction',
+        'Reactive typography and shadows',
+        'Haptic feedback and micro-interactions',
+      ],
+      dependencies: ['flutter_animate', 'dart:ui'],
+      usageExample: '''PremiumFeedbackForm()''',
+      previewBuilder: () => Builder(
+        builder: (context) => Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(
+                Icons.sentiment_very_satisfied_rounded,
+                size: 48,
+                color: AppColors.accentAmber,
+              ),
+              const SizedBox(height: 16),
+              const Text(
+                'Immersive Full-Screen UI',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: -0.5,
+                ),
+              ),
+              const SizedBox(height: 24),
+              FilledButton.icon(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute<void>(
+                      builder: (context) => const PremiumFeedbackForm(),
+                      fullscreenDialog: true,
+                    ),
+                  );
+                },
+                icon: const Icon(Icons.fullscreen_rounded),
+                label: const Text('Launch Fullscreen Test'),
+                style: FilledButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 12,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    ),
+  ];
 }
 
 class _LiquidGlassPreviewContent extends StatelessWidget {
@@ -1622,7 +1851,8 @@ class _PreviewContentLine extends StatelessWidget {
 class _DynamicChromaticPreview extends StatefulWidget {
   const _DynamicChromaticPreview();
   @override
-  State<_DynamicChromaticPreview> createState() => _DynamicChromaticPreviewState();
+  State<_DynamicChromaticPreview> createState() =>
+      _DynamicChromaticPreviewState();
 }
 
 class _DynamicChromaticPreviewState extends State<_DynamicChromaticPreview> {
@@ -1675,9 +1905,18 @@ class _DynamicChromaticPreviewState extends State<_DynamicChromaticPreview> {
             selectedIndex: _currentIndex,
             onItemSelected: (index) => setState(() => _currentIndex = index),
             items: const [
-              ChromaticRippleNavBarItem(icon: Icons.home_rounded, label: 'Home'),
-              ChromaticRippleNavBarItem(icon: Icons.explore_rounded, label: 'Explore'),
-              ChromaticRippleNavBarItem(icon: Icons.person_rounded, label: 'Profile'),
+              ChromaticRippleNavBarItem(
+                icon: Icons.home_rounded,
+                label: 'Home',
+              ),
+              ChromaticRippleNavBarItem(
+                icon: Icons.explore_rounded,
+                label: 'Explore',
+              ),
+              ChromaticRippleNavBarItem(
+                icon: Icons.person_rounded,
+                label: 'Profile',
+              ),
             ],
           ),
           const SizedBox(height: 32),
@@ -1690,7 +1929,10 @@ class _DynamicChromaticPreviewState extends State<_DynamicChromaticPreview> {
               );
             },
             icon: const Icon(Icons.fullscreen_rounded, color: Colors.white),
-            label: const Text('Test Fullscreen', style: TextStyle(color: Colors.white)),
+            label: const Text(
+              'Test Fullscreen',
+              style: TextStyle(color: Colors.white),
+            ),
             style: TextButton.styleFrom(
               backgroundColor: Colors.black26,
               padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
@@ -1767,15 +2009,32 @@ class _DynamicFullscreenTestState extends State<_DynamicFullscreenTest> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
-                  padding: const EdgeInsets.only(bottom: 24.0, left: 24.0, right: 24.0),
+                  padding: const EdgeInsets.only(
+                    bottom: 24.0,
+                    left: 24.0,
+                    right: 24.0,
+                  ),
                   child: ChromaticRippleNavBar(
                     selectedIndex: _currentIndex,
-                    onItemSelected: (idx) => setState(() => _currentIndex = idx),
+                    onItemSelected: (idx) =>
+                        setState(() => _currentIndex = idx),
                     items: const [
-                      ChromaticRippleNavBarItem(icon: Icons.home_rounded, label: 'Home'),
-                      ChromaticRippleNavBarItem(icon: Icons.explore_rounded, label: 'Explore'),
-                      ChromaticRippleNavBarItem(icon: Icons.map_rounded, label: 'Map'),
-                      ChromaticRippleNavBarItem(icon: Icons.person_rounded, label: 'Profile'),
+                      ChromaticRippleNavBarItem(
+                        icon: Icons.home_rounded,
+                        label: 'Home',
+                      ),
+                      ChromaticRippleNavBarItem(
+                        icon: Icons.explore_rounded,
+                        label: 'Explore',
+                      ),
+                      ChromaticRippleNavBarItem(
+                        icon: Icons.map_rounded,
+                        label: 'Map',
+                      ),
+                      ChromaticRippleNavBarItem(
+                        icon: Icons.person_rounded,
+                        label: 'Profile',
+                      ),
                     ],
                   ),
                 ),
@@ -1787,4 +2046,3 @@ class _DynamicFullscreenTestState extends State<_DynamicFullscreenTest> {
     );
   }
 }
-
