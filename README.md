@@ -86,6 +86,12 @@ We believe that **great design lives in the details**. Every component in this l
 | **Morph Loader** | Shape-morphing animation | Smooth transitions |
 | **Orbit Loader** | Orbiting particles animation | Tech-forward loaders |
 
+### Feedback Forms
+
+| Component | Features | Use Case |
+|-----------|----------|----------|
+| **Feedback Form** | Smooth, glassmorphic feedback collection form | User feedback & surveys |
+
 ## 🏗️ Project Structure
 
 ```
@@ -103,7 +109,8 @@ Flutter-UI-Kit/
 │   │   ├── navigation/           # Navigation components
 │   │   ├── cards/                # Card component variants
 │   │   ├── inputs/               # Input field components
-│   │   └── loaders/              # Loading indicator components
+│   │   ├── loaders/              # Loading indicator components
+│   │   └── feedback_forms/       # Feedback form components
 │   │
 │   └── pages/
 │       ├── component_showcase/   # Individual component demo pages
