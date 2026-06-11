@@ -90,7 +90,7 @@ We believe that **great design lives in the details**. Every component in this l
 
 | Component | Features | Use Case |
 |-----------|----------|----------|
-| **Feedback Form** | Smooth, glassmorphic feedback collection form | User feedback & surveys |
+| **Feedback Form** | Smooth, animated feedback collection form | User feedback & surveys |
 
 ## 🏗️ Project Structure
 
